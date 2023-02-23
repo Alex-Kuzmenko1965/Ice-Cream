@@ -1,0 +1,47 @@
+<!--buy-now-modal-->
+<div class="modal" data-modal="13">
+  <h3 class="buy-now__title">Buy now</h3>
+  
+  <form action="#" class="modal__lab-form">
+    <ul class="list buy-now__list">
+      <li class="buy-now__item buy-now__ice-cream">
+        <label class="buy-now__label">
+          <input class="buy-now__checkbox" type="checkbox" name="product" value="icecream">
+          <span class="buy-now__product icecream">ice cream</span>
+        </label>
+      </li>
+      <li class="buy-now__item buy-now__ice-coffee">
+        <label class="buy-now__label">
+          <input class="buy-now__checkbox" type="checkbox" name="product" value="icecoffee">
+          <span class="buy-now__product icecoffee">ice coffee</span>
+        </label>
+      </li>
+      <li class="buy-now__item buy-now__milkshakes">
+        <label class="buy-now__label">
+          <input class="buy-now__checkbox" type="checkbox" name="product" value="milkshakes">
+          <span class="buy-now__product milkshakes">ice coffee</span>
+        </label>
+      </li>
+    </ul>
+    <div class="modal__input-group">      
+        <input type="text" class="modal__input" placeholder="Name" name="name" required
+      minlength="6"
+      pattern="^[a-zA-Z]+\s[a-zA-Z]+$"
+      title="Username must consist of two words in Latin letters, separated by a space">      
+    </div>
+    <div class="modal__input-group">      
+        <input type="tel" class="modal__input" placeholder="Phone" name="tel" required pattern="380[0-9]{9}"
+      title="Phone number must be 12 symbols (380XXXXXXXXX)">      
+    </div>
+    <div class="modal__input-group">
+      <textarea name="coment" id="coment" class="modal__text" placeholder="Comment"></textarea>
+    </div>
+    <button type="submit" class="form-send-btn">Submit</button>
+  </form>
+  <button type="button" class="modal__cross js-modal-close"><svg width="24" height="24" class="icon-cross">
+      <use href="./images/modal/icons.svg#icon-cross"></use>
+    </svg></button>
+</div>
+
+<!-- Підклвдкаа під модальне вікно -->
+<div class="overlay js-overlay-modal"></div>

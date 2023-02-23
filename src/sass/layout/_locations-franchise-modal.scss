@@ -1,0 +1,265 @@
+.overlay {
+  /* Ховаємо підкладку */
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  transition: .3s all;    
+}
+
+.modal {
+  /* Ховаєм вікна */
+  opacity: 0;
+  visibility: hidden;
+
+  max-width: 280px;
+  padding: 28px;  
+  height: 100%;
+  overflow-y: auto;
+
+  /*  Центруємо ї задаємо z-index вищий за підкладку*/
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  @media screen and (min-width: 768px) {    
+    min-width: 568px;
+    height: auto;
+    padding: 32px 60px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: hidden;
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  
+  border: 2px solid $accent-color;
+  border-radius: 10px;
+
+  background: $secondary-text-color;
+  
+  &__map {    
+    width: 100%;
+    height: 199px;
+    background-image: url('../images/modal/rectangle-224.jpg');
+    block-size: cover;
+    border: 1px solid $accent-color;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    
+    @media screen and (min-width: 768px) {
+      width: 100%;
+      height: 260px;
+      background-image: url('../images/modal/rectangle-448.jpg');
+      margin-bottom: 32px;
+    }    
+  }
+  
+  &__heading {
+    display: flex;
+    max-width: 322px;
+    margin-bottom: 20px;
+
+    font-family: 'Seymour One';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;      
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+  
+    color: $color-primary;
+    
+    @media screen and (min-width: 768px) {
+      font-size: 20px;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+  }  
+
+  &__p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+  
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 24px;
+  
+    color: $color-primary;
+
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__input-group {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 40px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__input {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    max-width: 100%;
+    height: 42px;
+    padding: 11px 16px;
+    outline: none;
+    border: 1px solid $background-color;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    color: $color-primary;
+
+    transform: border-color 250ms ease-in;
+  }  
+  
+  &__cross {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    top: 12px;
+    right: 12px;
+    border: $secondary-text-color;
+
+    @media screen and (min-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.modal.active,
+.overlay.active {
+  opacity: 1;
+  visibility: visible;  
+}
+
+.modal__lab-form input {
+  &:hover,
+  &:focus {
+    border: 1px solid $accent-color;
+  }  
+}
+
+.modal__lab-form {
+  display: block;
+  width: 100%;  
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  color: $color-primary;  
+}
+
+.modal__input:not(:placeholder-shown):required:valid {
+  border-color: $button-hover;
+}
+
+.modal__input:not(:placeholder-shown):not(:focus):required:invalid {
+  border-color: red;
+}
+
+.modal__text {
+  width: 100%;
+  height: 64px;
+  background-color: transparent;
+
+  // обнуляє focus
+  outline: none;
+
+  border: 1px solid $background-color;
+  border-radius: 10px;
+  padding: 11px 16px;
+  resize: none;
+  margin-bottom: 12px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: $color-primary;
+
+  @media screen and (min-width: 768px) {
+    height: 84px;
+    margin-bottom: 16px;
+  }  
+}
+
+.modal__lab-form textarea {
+  &:hover,
+  &:focus {
+    border: 1px solid $accent-color;
+  }
+}
+
+.modal__text:not(:placeholder-shown):valid {
+  border-color: $button-hover;
+}
+
+.form-send-btn {
+  display: inline-block;
+  padding: 12px 34px;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: $accent-color;
+  font-weight: 700;
+  margin: 0 auto;
+  outline: none;
+
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.21;
+  display: flex;
+  align-items: center;
+  text-align: center;  
+  color: $color-primary;
+
+  transition: color 250ms ease-in;
+
+  &:hover,
+  &:focus {
+    background-color: $button-hover;
+  }
+  
+  &:focus {
+    color: $white;    
+  }
+}
+
+.icon-cross {
+  width: 100%;
+  height: 100%; 
+  background-color: transparent;
+  fill: $color-primary;
+  border: none;  
+
+  &:hover,
+  &:focus {
+    fill: $button-hover;
+  }
+}
